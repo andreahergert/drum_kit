@@ -22,10 +22,22 @@ keys.forEach(key => {
     const keyCode = this.getAttribute('data-key');
     playSound(keyCode);
   });
+
+    // Add click event listener
+    key.addEventListener('click', function (e) {
+      e.preventDefault();
+      const keyCode = this.getAttribute('data-key');
+      playSound(keyCode);
+    });
 });
 
-// Add event listener for both keydown and touchstart events
+// Add event listener for both keydown, mouse click, and touchstart events
 window.addEventListener('keydown', function (e) {
+  const keyCode = e.keyCode;
+  playSound(keyCode);
+});
+
+window.addEventListener('click', function (e) {
   const keyCode = e.keyCode;
   playSound(keyCode);
 });
